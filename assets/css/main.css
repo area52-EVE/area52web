@@ -1,0 +1,473 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;1,100;1,300;1,400&family=Poppins:ital,wght@0,100;0,300;0,400;0,600;0,700;0,900;1,100;1,300;1,400;1,600;1,700;1,900&family=Titillium+Web:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&display=swap');
+
+:root {
+  /*--- FONTS ---*/
+  --main-font: 'Poppins', sans-serif;
+  --heading-font: 'Titillium Web', sans-serif;
+  --plain-font: 'Lato', sans-serif;
+  --special-font: 'FiraCode Nerd Font', monospace;
+  /*--- COLORS ---*/
+  --bg-main: rgba(19, 41, 65, 1);
+  --bg-dark: rgba(34, 34, 34, 1);
+  --bg-aside: rgba(50,50,50,1);
+  --bg-high: rgba(30, 135, 240, 1);
+  --light-color: rgba(250, 250, 250, 1);
+  --dark-color: rgba(34, 34, 34, 1);
+  --grey-color: rgba(102, 102, 102, 1);
+  --efect-1: rgba(255, 0, 193, 1);
+  --efect-2: rgba(0, 255, 249, 1);
+}
+html {
+  font-family: var(--main-font);
+  font-size: 16px;
+  scroll-behavior: smooth;
+  transition: scroll 2s;
+}
+h1,h2,h3,h4,h5,h6 {
+  font-family: var(--heading-font);
+  color: var(--light-color)
+}
+p {
+  font-family: var(--main-font);
+  color: var(--light-color)
+}
+.header {
+  min-height: 100vh;
+  background-image: url(../../assets/images/bg.png);
+  background-color: var(--bg-main);
+}
+.nav {
+  padding: 0 4rem;
+  font-size: 1rem;
+  transition: ease .6s;
+  font-family: var(--heading-font);
+  color: var(--light-color);
+}
+.nav-dark {
+  background-color: var(--bg-dark) !important;
+  transition: ease .6s;
+}
+.nav li a {
+  color: var(--light-color);
+  font-family: var(--heading-font) !important;
+  font-weight: 600;
+  letter-spacing: 2px;
+}
+.uk-nav > li > a {
+  padding: 2rem 0;
+}
+.uk-nav {
+  color: var(--light-color);
+  font-family: var(--heading-font) !important;
+  font-size: 1.3rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+}
+.main {
+  padding-top: 5rem;
+}
+.main-title h1 {
+  font-size: 6rem;
+  font-weight: bolder;
+}
+#about {
+  background-color: var(--bg-main);
+  min-height: 100vh;
+  padding: 10rem 5rem;
+}
+#about h2{
+  font-size: 3rem;
+}
+.about-img img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;  ;
+}
+.about-text p {
+  text-align: justify;
+}
+.about-text span {
+  font-weight: bolder;
+  font-size: 1.8rem;
+}
+#perks {
+  padding: 8rem 5rem;
+}
+#perks h3 {
+  font-size: 2rem;
+}
+#join-us {
+  background-color: var(--bg-main);
+  min-height: 100vh;
+  padding: 10rem 5rem;
+}
+#join-us h2 {
+  font-size: 3rem;
+}
+.brand {
+  letter-spacing: 8px;
+}
+.chars {
+  margin: 1.2rem auto;
+}
+.char-img {
+  max-width: 200px;
+  border: solid 3px var(--light-color);
+}
+.char-name {
+  font-weight: bold;
+  margin-top: .3em;
+}
+.discord {
+  margin: 0 auto;
+}
+.discord-frm {
+  margin-left: 5rem;
+}
+.footer {
+  display: block;
+  background-color: var(--bg-dark);
+  padding: 2rem 20rem;
+  font-family: var(--plain-font)
+}
+.footer p {
+  text-align: center;
+  margin: 0;
+}
+.social-icons li {
+  list-style: none;
+}
+.social-icons span {
+  font-family: var(--special-font);
+}
+.social-icons a {
+  text-decoration: none;
+}
+.social-icons h5, .copy h5 {
+  color: var(--grey-font);
+  font-weight: bold;
+}
+.copy {
+  font-size: .7rem;
+}
+/* ========================================================*/
+/*                      EFECTO GLITCH                      */
+/*      https://codepen.io/cipherbeta/pen/YLdVjw           */
+/* ========================================================*/
+/* Our mixin positions a copy of our text
+directly on our existing text, while
+also setting content to the appropriate
+text set in the data-text attribute. */
+.glitch {
+  position: relative;
+  color: white;
+  font-size: 4em;
+  letter-spacing: 0.3em;
+  /* Animation provies a slight random skew. Check bottom of doc
+  for more information on how to random skew. */
+  animation: glitch-skew 1s infinite linear alternate-reverse;
+}
+.glitch::before {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  left: 2px;
+  text-shadow: -2px 0 var(--efect-1);
+  /* Creates an initial clip for our glitch. This works in
+  a typical top,right,bottom,left fashion and creates a mask
+  to only show a certain part of the glitch at a time. */
+  clip: rect(44px, 450px, 56px, 0);
+  /* Runs our glitch-anim defined below to run in a 5s loop, infinitely,
+  with an alternating animation to keep things fresh. */
+  animation: glitch-anim 5s infinite linear alternate-reverse;
+}
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  left: -2px;
+  text-shadow: -2px 0 var(--efect-2), 2px 2px var(--efect-1);
+  animation: glitch-anim2 1s infinite linear alternate-reverse;
+}
+/* Creates an animation with 20 steaps. For each step, it calculates
+a percentage for the specific step. It then generates a random clip
+box to be used for the random glitch effect. Also adds a very subtle
+skew to change the 'thickness' of the glitch.*/
+@keyframes glitch-anim {
+  0% {
+    clip: rect(87px, 9999px, 57px, 0);
+    transform: skew(0.05deg);
+  }
+  5% {
+    clip: rect(56px, 9999px, 2px, 0);
+    transform: skew(0.04deg);
+  }
+  10% {
+    clip: rect(7px, 9999px, 61px, 0);
+    transform: skew(0.68deg);
+  }
+  15% {
+    clip: rect(37px, 9999px, 49px, 0);
+    transform: skew(0.38deg);
+  }
+  20% {
+    clip: rect(87px, 9999px, 87px, 0);
+    transform: skew(0.39deg);
+  }
+  25% {
+    clip: rect(88px, 9999px, 17px, 0);
+    transform: skew(0.35deg);
+  }
+  30% {
+    clip: rect(3px, 9999px, 43px, 0);
+    transform: skew(0.05deg);
+  }
+  35% {
+    clip: rect(41px, 9999px, 22px, 0);
+    transform: skew(0.49deg);
+  }
+  40% {
+    clip: rect(68px, 9999px, 51px, 0);
+    transform: skew(0.61deg);
+  }
+  45% {
+    clip: rect(64px, 9999px, 65px, 0);
+    transform: skew(0.4deg);
+  }
+  50% {
+    clip: rect(89px, 9999px, 7px, 0);
+    transform: skew(0.46deg);
+  }
+  55% {
+    clip: rect(86px, 9999px, 19px, 0);
+    transform: skew(0.35deg);
+  }
+  60% {
+    clip: rect(87px, 9999px, 62px, 0);
+    transform: skew(0.62deg);
+  }
+  65% {
+    clip: rect(43px, 9999px, 63px, 0);
+    transform: skew(0.25deg);
+  }
+  70% {
+    clip: rect(8px, 9999px, 26px, 0);
+    transform: skew(0.38deg);
+  }
+  75% {
+    clip: rect(72px, 9999px, 54px, 0);
+    transform: skew(0.24deg);
+  }
+  80% {
+    clip: rect(9px, 9999px, 96px, 0);
+    transform: skew(0.27deg);
+  }
+  85% {
+    clip: rect(20px, 9999px, 43px, 0);
+    transform: skew(0.46deg);
+  }
+  90% {
+    clip: rect(72px, 9999px, 17px, 0);
+    transform: skew(0.5deg);
+  }
+  95% {
+    clip: rect(88px, 9999px, 14px, 0);
+    transform: skew(0.66deg);
+  }
+  100% {
+    clip: rect(87px, 9999px, 58px, 0);
+    transform: skew(0.13deg);
+  }
+}
+@keyframes glitch-anim2 {
+  0% {
+    clip: rect(9px, 9999px, 61px, 0);
+    transform: skew(0.53deg);
+  }
+  5% {
+    clip: rect(13px, 9999px, 93px, 0);
+    transform: skew(0.01deg);
+  }
+  10% {
+    clip: rect(50px, 9999px, 18px, 0);
+    transform: skew(0.3deg);
+  }
+  15% {
+    clip: rect(39px, 9999px, 77px, 0);
+    transform: skew(0.25deg);
+  }
+  20% {
+    clip: rect(81px, 9999px, 21px, 0);
+    transform: skew(0.54deg);
+  }
+  25% {
+    clip: rect(96px, 9999px, 76px, 0);
+    transform: skew(0.68deg);
+  }
+  30% {
+    clip: rect(100px, 9999px, 16px, 0);
+    transform: skew(0.67deg);
+  }
+  35% {
+    clip: rect(54px, 9999px, 90px, 0);
+    transform: skew(0.15deg);
+  }
+  40% {
+    clip: rect(70px, 9999px, 23px, 0);
+    transform: skew(0.93deg);
+  }
+  45% {
+    clip: rect(54px, 9999px, 87px, 0);
+    transform: skew(0.88deg);
+  }
+  50% {
+    clip: rect(35px, 9999px, 87px, 0);
+    transform: skew(0.16deg);
+  }
+  55% {
+    clip: rect(95px, 9999px, 64px, 0);
+    transform: skew(0.11deg);
+  }
+  60% {
+    clip: rect(22px, 9999px, 12px, 0);
+    transform: skew(0.51deg);
+  }
+  65% {
+    clip: rect(19px, 9999px, 67px, 0);
+    transform: skew(0.79deg);
+  }
+  70% {
+    clip: rect(21px, 9999px, 91px, 0);
+    transform: skew(0.35deg);
+  }
+  75% {
+    clip: rect(85px, 9999px, 48px, 0);
+    transform: skew(0.38deg);
+  }
+  80% {
+    clip: rect(95px, 9999px, 81px, 0);
+    transform: skew(0.16deg);
+  }
+  85% {
+    clip: rect(4px, 9999px, 37px, 0);
+    transform: skew(0.74deg);
+  }
+  90% {
+    clip: rect(22px, 9999px, 11px, 0);
+    transform: skew(0.99deg);
+  }
+  95% {
+    clip: rect(28px, 9999px, 93px, 0);
+    transform: skew(0.79deg);
+  }
+  100% {
+    clip: rect(5px, 9999px, 11px, 0);
+    transform: skew(0.29deg);
+  }
+}
+@keyframes glitch-skew {
+  0% {
+    transform: skew(-3deg);
+  }
+  10% {
+    transform: skew(-1deg);
+  }
+  20% {
+    transform: skew(4deg);
+  }
+  30% {
+    transform: skew(3deg);
+  }
+  40% {
+    transform: skew(2deg);
+  }
+  50% {
+    transform: skew(-1deg);
+  }
+  60% {
+    transform: skew(3deg);
+  }
+  70% {
+    transform: skew(-1deg);
+  }
+  80% {
+    transform: skew(2deg);
+  }
+  90% {
+    transform: skew(-1deg);
+  }
+  100% {
+    transform: skew(-4deg);
+  }
+}
+/*===============================================*/
+/*                    Movil                      */
+/*===============================================*/
+@media (min-width: 360px) and (max-width: 420px){
+  .nav {
+    padding: 0 .5rem;
+  }
+  .main {
+    padding-top: 2rem;
+  }
+  .main-logo {
+    width: 75%;
+    margin: 0 auto;
+  }
+  .main-title h1 {
+    font-size: 3rem;
+    margin-top: 35%;
+  }
+  #about {
+    padding: 5rem 1rem;
+  }
+  .about-img img {
+    width: 60%;
+    display: inherit;
+    transform: none !important;
+  }
+  #perks {
+    padding: 4rem 1rem;
+  }
+  #join-us {
+    padding: 5rem 1rem;
+  }
+  .discord-frm {
+    height: 400px;
+    margin-left: .5rem;
+    margin-right: .5rem;
+  }
+  .footer {
+    padding: .6rem;
+  }
+}
+/*===============================================*/
+/*                    Tablet                     */
+/*===============================================*/
+@media (max-width: 810px){
+  .nav {
+    padding: 0 .6rem;
+  }
+  .about-img img {
+    width: 60%;
+    display: inherit;
+    transform: none !important;
+  }
+  .discord {
+    margin-top: 2rem !important;
+  }
+  .discord-frm {
+    height: 450px;
+    margin-left: .4rem;
+    margin-right: .4rem;
+  }
+  .footer {
+    padding: .6rem;
+  }
+}

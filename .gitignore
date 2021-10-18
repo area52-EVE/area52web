@@ -1,0 +1,18 @@
+_site
+.sass-cache
+.jekyll-cache
+.jekyll-metadata
+vendor
+
+### Atom ###
+.ftpconfig
+.sftpconfig
+
+### Linux ###
+*~
+.fuse_hidden*
+.Trash-*
+.nfs*
+
+### Others ###
+CNAME

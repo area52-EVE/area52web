@@ -1,0 +1,64 @@
+<aside class="blog-aside">
+  <div class="aside-highlights">
+    <h2>Destacados</h2>
+    {% for post in site.posts %}
+    {% if post.fav == true %}
+      <a class="a-card" href="{{ post.url | relative_url }}">
+        <div class="uk-card uk-card-default uk-card-small uk-card-hover uk-grid-collapse uk-child-width-1-2@s uk-margin" uk-grid>
+          <div class=" aside-card uk-card-media-left uk-cover-container">
+            {% if post.thumbnail contains "http" %}
+            <img src="{{post.thumbnail}}" alt="{{post.thumbnail_alt}}" uk-cover>
+            {% else %}
+            <img src="{{site.url}}/{{post.thumbnail}}" alt="{{post.thumbnail_alt}}" uk-cover>
+            {% endif %}
+            <canvas width="150" height="170"></canvas>
+          </div>
+          <div>
+              <div class="uk-card-body">
+                <h3 class="uk-card-title">{{ post.title }}</h3>
+                <p class="card-description">{{ post.description }}</p>
+              </div>
+          </div>
+        </div>
+      </a>
+    {% endif %}
+    {% endfor %}
+  </div>
+  <!-- <div class="aside-archive">
+    <h2>Archivo</h2>
+    <ul>
+        <li>2021
+            <ul>
+                <li>Agosto</li>
+                <li>Septiembre
+                    <ul>
+                        <li>Post 1</li>
+                        <li>Post 2</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li>2020</li>
+    </ul>
+  </div> -->
+
+  <div class="aside-categories">
+    <h2>Categorías</h2>
+    {% assign categories = site.categories %}
+    {% for category in categories %}
+    <ul class="uk-list">
+      <li><a href="/category/{{ category | first | slugize }}/">{{ category | first }}</a></li>
+    </ul>
+    {% endfor %}
+  </div>
+
+  <div class="aside-tags">
+    <h2>Etiquetas</h2>
+    {% assign tags = site.tags | sort %}
+    {% for tag in tags %}
+    <span class="uk-label">
+      <a href="/tag/{{ tag | first | slugify }}/">#{{ tag[0] | replace:'-', ' ' }} ({{ tag | last | size }})</a>
+    </span>
+    {% endfor %}
+  </div>
+</aside>

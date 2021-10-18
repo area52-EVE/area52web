@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: "es" }}">
+
+  {%- include head.html -%}
+
+  <body>
+
+    {%- include header_blog.html -%}
+
+    <section id="blog-main" class="uk-flex">
+      <main class="blog-content blog-entry markdown-body">
+        <h1 class="post-title p-name" itemprop="name headline">{{ page.title | escape }}</h1>
+        <p class="post-meta">
+          <time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
+            {%- assign date_format = site.minima.date_format | default: "%-d %b %Y" -%}
+            {{ page.date | date: date_format }}
+          </time>
+          {%- if page.author -%}
+            • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">{{ page.author }}</span></span>
+          {%- endif -%}</p>
+
+          {% if page.thumbnail contains "http" %}
+          <img src="{{ page.thumbnail }}" alt="{{post.thumbnail_alt}}">
+          {% else %}
+          <img src="{{
+            site.url}}/{{ page.thumbnail }}" alt="{{post.thumbnail_alt}}">
+          {% endif %}
+          
+        {{ content }}
+        <hr>
+        {% for tag in page.tags %}
+        <span class="uk-label">
+          <a href="{{site.url}}/tag/{{ tag | slugify }}">{{tag}}</a>
+        </span>
+        {% endfor %}
+
+        {%- if site.disqus.shortname -%}
+          {%- include disqus_comments.html -%}
+        {%- endif -%}
+        <a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
+      </main>
+      {%- include aside.html -%}
+    </section>
+
+    <section class="pagination">
+      <!- Enlaces de paginación ->
+      <div class="pagination">
+        {% if paginator.previous_page %}
+          <a href="{{ paginator.previous_page_path }}" class="previous">
+            Previous
+          </a>
+        {% else %}
+          <span class="previous">Previous</span>
+        {% endif %}
+        <span class="page_number ">
+          Page: {{ paginator.page }} of {{ paginator.total_pages }}
+        </span>
+        {% if paginator.next_page %}
+          <a href="{{ paginator.next_page_path }}" class="next">Next</a>
+        {% else %}
+          <span class="next ">Next</span>
+        {% endif %}
+      </div>
+    </section>
+
+
+    {%- include footer.html -%}
+    {%- include scripts.html -%}
+
+  </body>
+
+</html>

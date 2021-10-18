@@ -1,0 +1,31 @@
+---
+layout: default_blog
+title: Blog
+pagination:
+  enabled: true
+---
+      {% if site.paginate %}
+        {% assign posts = paginator.posts %}
+      {% else %}
+        {% assign posts = site.posts %}
+      {% endif %}
+
+
+        {% for post in paginator.posts %}
+        <div>
+          <div class="uk-card uk-card-default uk-card-hover"><a href="{{ post.url | relative_url }}">
+            <div class="uk-card-media-top">
+              {% if post.thumbnail contains "http" %}
+              <img src="{{ post.thumbnail }}" alt="{{post.thumbnail_alt}}">
+              {% else %}
+              <img src="{{site.url}}/{{ post.thumbnail }}" alt="{{post.thumbnail_alt}}">
+              {% endif %}
+            </div>
+            <div class="uk-card-body">
+              <h3 class="uk-card-title">{{ post.title | escape }}</h3>
+              <span>{{post.date | date_to_string}}</span>
+              <p>{{post.description}}</p>
+            </div></a>
+          </div>
+        </div>
+        {% endfor %}
