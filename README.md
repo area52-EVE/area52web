@@ -1,3 +1,7 @@
-git remote add origin https://github.com/area52-EVE/area52web.git
-git branch -M main
-git push -u origin main
+Area-52 nació en el año 2015 como un proyecto personal y de amigos, como casi todas la cosas buenas. Con el correr del tiempo se ha ido transformando y haciendo extensivo a cada vez más pilotos hispanohablantes. En el camino hemos ido aprendiendo, mejorando, y sobretodo cosechando cada vez más amigos que hasta sobrepasan los límites de New Eden.
+
+Como corporación nunca nos hemos encacillado en una sola actividad. Hemos gustado de adquirir experiencia en prácticamente todas las áreas del juego, para expandir nuestros horizontes y supervivencia dentro del ecosistema de EVE Online. Esto además, nos ha permitido ampliar nuestros círculos así como la oferta de actividades para los miembros, así como los nuevos jugadores que se nos unen día a día.
+
+Hemos formado parte de grandes y pequeñas alianzas y coaliciones, de todas hemos aprendido y adquirido basta experiencia. Destacable fue aquella, un sueño: "La Federación"; esta tenía como objetivo nuclear a la gran mayoría de jugadores hispanohablantes posibles y conformarse como una fuerza de peso dentro de EVE Online.
+
+En este camino, Area-52 siempre mantiene su deseo y compromiso de ver este maravilloso MMORPG traducido al español, para permitir que el idioma no sea una barrera a los nuevos jugadores. Es en este sentido que, esperamos que todos nuestros nuevos jugadores encuentren entre nosotros su lugar en EVE Online, o al menos, un gran caudal de información y conocimiento en español. 
