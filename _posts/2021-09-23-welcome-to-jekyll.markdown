@@ -4,8 +4,7 @@ title: "Wellcome to Jekyll"
 date: 2021-09-23 17:58:16 -0300
 thumbnail: https://images.ctfassets.net/7lhcm73ukv5p/4aO41OX3cxAzGcPN4HGKcE/dbaf443f34a59d5a2ebe06b11a01ac32/www-bottom-bg.jpg
 description: "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-categories: test
-tags: test jekyll
+categories: jekyll test
 fav: true
 ---
 You’ll find this post in your `_posts` directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run `jekyll serve`, which launches a web server and auto-regenerates your site when a file is updated.
